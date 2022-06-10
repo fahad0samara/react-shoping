@@ -1,10 +1,9 @@
+import React from 'react';
+import {Tooltip} from "@mui/material";
 import {useDispatch} from "react-redux";
 import {ADD} from "../../redux/actions/action";
-import React from 'react';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-
 const Cardd = ({item}) => {
-  
   const dispatch = useDispatch();
 
   const send = e => {
@@ -14,17 +13,9 @@ const Cardd = ({item}) => {
   return (
     <div>
       <div class="container">
-        <div class="card-4 card-div">
-          <div class="like-icon-div">
-            <label for="card-4-like" class="like-icon-div-child">
-              <input type="checkbox" id="card-4-like" />
-              <i class="far fa-heart heart-empty"></i>
-              <i class="fas fa-heart heart-fill"></i>
-            </label>
-          </div>
-
-          <div class="gow-img-div img-div">
-            <img src={item.img} alt="god-of-war-figurine" />
+        <div class="card-1 card-div">
+          <div class="w-full gow-img-div img-div ">
+            <img src={item.img} alt="god-of-war-figurine w-full" />
           </div>
           <div class="text-container">
             <h2 class="item-name">{item.title}</h2>
@@ -35,8 +26,8 @@ const Cardd = ({item}) => {
 
                 <p
                   style={{
-                    color: "green",
-                    padding: "2px 5px",
+                    color: "blue",
+                    padding: "2px 2px",
                     borderRadius: "5px",
                   }}
                 >
@@ -45,8 +36,11 @@ const Cardd = ({item}) => {
                 </p>
                 <p class="current-price">${item.price}</p>
               </div>
+
               <div className="fas fa-shopping-cart cursor-pointer">
-                <ShoppingCartIcon onClick={() => send(item)} />
+                <Tooltip title="add to cart" arrow leaveDelay={200}>
+                  <ShoppingCartIcon onClick={() => send(item)} />
+                </Tooltip>
               </div>
             </div>
           </div>
@@ -54,6 +48,6 @@ const Cardd = ({item}) => {
       </div>
     </div>
   );
-}
+};
 
-export default Cardd
+export default Cardd;

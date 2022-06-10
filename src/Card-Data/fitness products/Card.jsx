@@ -13,7 +13,7 @@ const Cardd = ({item}) => {
   return (
     <div>
       <div class="container">
-        <div class="card-1 card-div">
+        <div class="card-2 card-div">
           <div class="like-icon-div">
             <label for="card-1-like" class="like-icon-div-child">
               <input type="checkbox" id="card-1-like" />

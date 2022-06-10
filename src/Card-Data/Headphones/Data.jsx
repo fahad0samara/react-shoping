@@ -19,7 +19,7 @@ const Data = () => {
 
   useEffect(() => {
     axios
-      .get("https://my-app-shopping.herokuapp.com/body_products")
+      .get("https://my-app-shopping.herokuapp.com/Headphones")
       .then(function (response) {
         console.log(response.data);
         setData(response.data);
@@ -35,6 +35,7 @@ const Data = () => {
         {" "}
         Reviews of some fitness products
       </div>
+
       <div>
         <Swiper
           autoplay={{
@@ -44,8 +45,9 @@ const Data = () => {
           slidesPerView={4}
           spaceBetween={30}
           centeredSlides={true}
+          
           navigation={true}
-          modules={[Autoplay, Navigation]}
+          modules={[ Autoplay,Navigation]}
           className="mySwiper"
         >
           {data.map((item, i) => (
