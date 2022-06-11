@@ -13,6 +13,7 @@ import "swiper/css/pagination";
 
 // import required modules
 import {Navigation, Autoplay} from "swiper";
+import { left } from "@popperjs/core";
 
 const Data = () => {
   const [data, setData] = useState([]);
@@ -37,19 +38,37 @@ const Data = () => {
       </div>
       <div>
         <Swiper
+          breakpoints={{
+            // when window width is >= 640px
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 1,
+            }
+         ,
+            // when window width is >= 768px
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 50,
+            },
+            1050: {
+              slidesPerView: 4,
+              spaceBetween: 100,
+            },
+          }}
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,
           }}
-          slidesPerView={4}
-          spaceBetween={30}
-          centeredSlides={true}
           navigation={true}
           modules={[Autoplay, Navigation]}
           className="mySwiper"
         >
           {data.map((item, i) => (
-            <div className=" gridd">
+            <div className="">
               <SwiperSlide>
                 <Card item={item} />
               </SwiperSlide>

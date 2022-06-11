@@ -2,9 +2,9 @@ import {useDispatch} from "react-redux";
 import {ADD} from "../../redux/actions/action";
 import React from 'react';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-
-const Cardd = ({item}) => {
   
+const Cardd = ({item}) => {
+ 
   const dispatch = useDispatch();
 
   const send = e => {
@@ -13,6 +13,7 @@ const Cardd = ({item}) => {
   };
   return (
     <div>
+      
       <div class="container">
         <div class="card-4 card-div">
           <div class="like-icon-div">
@@ -46,6 +47,8 @@ const Cardd = ({item}) => {
                 <p class="current-price">${item.price}</p>
               </div>
               <div className="fas fa-shopping-cart cursor-pointer">
+          
+
                 <ShoppingCartIcon onClick={() => send(item)} />
               </div>
             </div>

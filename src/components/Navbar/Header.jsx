@@ -8,7 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import Toggle from '../../Toggle/Toggle';
 import {DLT} from "../../redux/actions/action";
 
-
+import CloseIcon from "@mui/icons-material/Close";
 
 const Header = () => {
   let arr = [true, false, false, false, false, false]
@@ -212,7 +212,7 @@ const Header = () => {
                   onClick={handleClick}
                 >
                   <AddShoppingCartIcon
-                    style={{fontSize: 25, cursor: "pointer"}}
+                    style={{fontSize: 25, cursor: "pointer", color: "#1F2937"}}
                   />
                 </Badge>
               </div>
@@ -316,7 +316,7 @@ const Header = () => {
           {getdata.length ? (
             <div className="card_details" style={{width: "24rem", padding: 10}}>
               <div>
-                <thead>
+                <thead className=" bg-blue-400 text-white text-2xl">
                   <tr>
                     <th>Photo</th>
                     <th>products Name</th>
@@ -337,19 +337,8 @@ const Header = () => {
                             </NavLink>
                           </td>
                           <td>
-                            <p>{e.title}</p>
-                            <p>Price : ${e.price}</p>
-
-                            <p
-                              style={{
-                                color: "red",
-                                fontSize: 20,
-                                cursor: "pointer",
-                              }}
-                              onClick={() => dlt(e.id)}
-                            >
-                              <DeleteForeverIcon />
-                            </p>
+                            <p className=" text-xl ml-4">{e.title}</p>
+                            <p className=" text-xl ml-4">Price : ${e.price}</p>
                           </td>
 
                           <td
@@ -361,13 +350,13 @@ const Header = () => {
                             }}
                             onClick={() => dlt(e.id)}
                           >
-                            <i className="fas fa-trash largetrash">card</i>
+                            <DeleteForeverIcon></DeleteForeverIcon>
                           </td>
                         </tr>
                       </>
                     );
                   })}
-                  <p className="text-center">Total:$ {price}</p>
+                  <h1 className="  mt-5">Total:$ {price}</h1>
                 </tbody>
               </div>
             </div>
@@ -376,8 +365,7 @@ const Header = () => {
               className="card_details d-flex justify-content-center align-items-center"
               style={{width: "24rem", padding: 10, position: "relative"}}
             >
-              <i
-                className="fas fa-close smallclose"
+              <CloseIcon
                 onClick={handleClose}
                 style={{
                   position: "absolute",
@@ -386,14 +374,8 @@ const Header = () => {
                   fontSize: 23,
                   cursor: "pointer",
                 }}
-              ></i>
+              ></CloseIcon>
               <p style={{fontSize: 22}}>Your carts is empty</p>
-              <img
-                src="./cart.gif"
-                alt=""
-                className="emptycart_img"
-                style={{width: "5rem", padding: 10}}
-              />
             </div>
           )}
         </Menu>

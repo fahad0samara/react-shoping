@@ -37,11 +37,34 @@ const Data = () => {
       </div>
       <div>
         <Swiper
+          breakpoints={{
+            600: {
+              slidesPerView: 1,
+              spaceBetween: 200,
+            },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 1,
+            },
+            // when window width is >= 768px
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 50,
+            },
+            1050: {
+              slidesPerView: 4,
+              spaceBetween: 100,
+            },
+          }}
           autoplay={{
             delay: 2000,
             disableOnInteraction: false,
           }}
-          slidesPerView={4}
+      
           spaceBetween={30}
           centeredSlides={true}
           navigation={true}
