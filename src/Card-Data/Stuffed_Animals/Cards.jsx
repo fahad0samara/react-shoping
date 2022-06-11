@@ -3,6 +3,7 @@ import {ADD} from "../../redux/actions/action";
 import React from "react";
 
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import {Tooltip} from "@mui/material";
 
 const Cards = ({item}) => {
   const dispatch = useDispatch();
@@ -11,41 +12,42 @@ const Cards = ({item}) => {
     dispatch(ADD(e));
   };
   return (
-    <div >
-      <div class="max-w-xs mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
-        <div class="px-4 py-2">
-          <h1 class="text-3xl font-bold text-gray-800 uppercase dark:text-white">
-            {item.title}
-          </h1>
-          <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quos
-            quidem sequi illum facere recusandae voluptatibus
-          </p>
-        </div>
-
+    <div className="mx-20  md:mx-0">
+      <figure className="snip1208  border-2  border-yellow-300 drop-shadow-2xl shadow-2xl">
         <img
-          class="object-cover w-full h-48 mt-2"
           src={item.img}
-          alt="NIKE AIR"
+          alt="sample66"
+          className="    h-60 w-full object-cover wsk-cp-product "
         />
-        <p
-          style={{
-            color: "green",
-            padding: "2px 5px",
-            borderRadius: "5px",
-          }}
-        >
-          {" "}
-          ★{item.rating}{" "}
-        </p>
-        <div class="flex items-center justify-between px-4 py-2 bg-gray-900">
-          <h1 class="text-lg font-bold text-white">${item.price}</h1>
-          <button class="px-2 py-1 text-xs font-semibold text-gray-900 uppercase transition-colors duration-200 transform bg-white rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none">
-            Add to cart
-            <ShoppingCartIcon onClick={() => send(item)} />
-          </button>
+        <div className="date  border-2 border-yellow-300 drop-shadow-2xl ">
+          ${item.price}
         </div>
-      </div>
+        <i onClick={() => send(item)} className="ion-film-marker">
+          <ShoppingCartIcon />
+        </i>
+        <figcaption>
+          <h3>{item.title}</h3>
+          <p
+            style={{
+              color: "green",
+              padding: "2px 5px",
+              borderRadius: "5px",
+            }}
+          >
+            {" "}
+            ★{item.rating}{" "}
+          </p>
+          <Tooltip title="Add" arrow>
+            <button
+              className="border-2 border-yellow-300 drop-shadow-2xl"
+              onClick={() => send(item)}
+            >
+              add to card
+              <ShoppingCartIcon />
+            </button>
+          </Tooltip>
+        </figcaption>
+      </figure>
     </div>
   );
 };

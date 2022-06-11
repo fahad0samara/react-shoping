@@ -178,7 +178,7 @@ const CardsDetails = () => {
                     )
                   </div>
                 </div>
-                <div className="xl:w-1/2 md:w-1/3 xl:w-1/4 w-full bg-gray-100 h-full">
+                <div className=" md:w-1/3 xl:w-1/4 w-full bg-gray-100 h-full">
                   <div className="flex flex-col md:h-screen px-14 py-20 justify-between overflow-y-auto">
                     <p className="text-4xl font-black leading-9 text-gray-800">
                       Summary

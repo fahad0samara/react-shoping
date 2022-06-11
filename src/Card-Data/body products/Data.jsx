@@ -1,20 +1,12 @@
 import React from "react";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import axios from "axios";
-import {useEffect} from "react";
+
 import Card from "./Card";
-import "swiper/css/navigation";
-import {Swiper, SwiperSlide} from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-
-// import required modules
 import {Navigation, Autoplay} from "swiper";
-import { left } from "@popperjs/core";
-
 const Data = () => {
   const [data, setData] = useState([]);
 
@@ -22,7 +14,6 @@ const Data = () => {
     axios
       .get("https://my-app-shopping.herokuapp.com/body_products")
       .then(function (response) {
-        console.log(response.data);
         setData(response.data);
       })
       .catch(function (error) {
@@ -43,8 +34,7 @@ const Data = () => {
             640: {
               slidesPerView: 2,
               spaceBetween: 1,
-            }
-         ,
+            },
             // when window width is >= 768px
             768: {
               slidesPerView: 2,
@@ -65,7 +55,7 @@ const Data = () => {
           }}
           navigation={true}
           modules={[Autoplay, Navigation]}
-          className="mySwiper"
+          className={"mySwiper"}
         >
           {data.map((item, i) => (
             <div className="">
