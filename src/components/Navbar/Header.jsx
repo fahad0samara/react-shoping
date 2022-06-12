@@ -62,10 +62,10 @@ const Header = () => {
 
   return (
     <>
-      <div className={"2xl:container 2xl:mx-auto"}>
-        <div className="bg-white rounded shadow-lg py-5 px-7">
+      <div>
+        <div className=" rounded shadow-lg py-3 px-7">
           <nav className="flex justify-between">
-            <div className={"flex items-center space-x-3 lg:pr-16 pr-6"}>
+            <div className={"flex items-center space-x-3 "}>
               <svg
                 className="cursor-pointer"
                 width={34}
@@ -303,7 +303,7 @@ const Header = () => {
         </div>
       </div>
 
-      <div style={{height: "60px"}}>
+      <div>
         <Menu
           id="basic-menu"
           anchorEl={anchorEl}

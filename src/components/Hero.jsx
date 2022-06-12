@@ -1,5 +1,5 @@
 import React from "react";
-import './Hero.css'
+import "./Hero.css";
 import {
   CarouselProvider,
   Slider,
@@ -8,88 +8,164 @@ import {
   ButtonNext,
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
-import img from "../img/0.png"
+import img from "../img/2.avif";
+import img2 from "../img/3.avif";
+import img3 from "../img/4.avif";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
+
+import img1 from "../img/0.avif";
+import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <>
       <CarouselProvider
         naturalSlideWidth={100}
         naturalSlideHeight={50}
-        totalSlides={2}
+        totalSlides={4}
         infinite={true}
         isPlaying={true}
         touchEnabled={true}
         dragEnabled={true}
       >
         <Slider>
-          <Slide onBlur={true} index={0}>
-            <div className=" grid grid-cols-5 divbg">
-              <div className=" col-span-2 space-y-14 mx-4">
-                <div className=" space-y-5">
-                  <p className=" text-4xl">Closca Bottle</p>
-                  <h1 className=" text-8xl">Beach</h1>
-                  <h3 className=" text-5xl"> $39.90</h3>
-                </div>
-                <div className="  m-2 space-y-6 ">
-                  <h1 className=" text-2xl font-bold">
-                    In 20 years, there could be more plastic in our oceans than
-                    fish
-                  </h1>
-                  <h2 className=" text-2xl">
-                    Plastic pollution injures more than 100.000 marine animals
-                    every year.It takes around 450 years for one plastic bottle
-                    to decompose
-                  </h2>
-                  <button className=" bg-blue-700"> Shop Now</button>
+          <Slide index={0}>
+            <div
+              className=" home md:w-full absolute    h-[80%]  "
+              style={{backgroundImage: `url(${img1})`}}
+            >
+              <div className=" text-center bg-black  mx-20  md:mt-44  md:opacity-75 xl:mx-96 drop-shadow-2xl mt-3 shadow-2xl border-4 border-amber-500 md:text-5xl rounded-3xl text-xl   md:bg-black  md:text-[#1abc9c]   md:space-y-8">
+                <h1 className=" font-black text-center  "> Best offers for</h1>{" "}
+                <p className=" md:font-bold">
+                  <span className=" text-amber-400">hours </span>
+                  products{" "}
+                </p>
+                <div>
+                  <Link to="/Menu">
+                    <button className=" mb-7"> SHOP NOW </button>{" "}
+                  </Link>
                 </div>
               </div>
-              <div data-aos="fade-right" className=" col-span-2 ">
-                <img src={img} alt="" className="     " />
-              </div>
-              <div className=" col-span-1 mt-44 space-x-2 ">
-                <ButtonBack className=" text-white text-7xl">
+              <div className="  ">
+                <ButtonBack
+                  className={
+                    " hover:text-white text-4xl  rounded-t-xl text-[#1abc9c] md:text-7xl"
+                  }
+                >
                   <ArrowCircleLeftOutlinedIcon fontSize="inherit" />
                 </ButtonBack>
-                <ButtonNext className=" text-white text-7xl">
+                <ButtonNext
+                  className={
+                    " text-[#1abc9c] text-4xl hover:text-white  md:text-7xl"
+                  }
+                >
                   <ArrowCircleRightOutlinedIcon fontSize="inherit" />
                 </ButtonNext>
               </div>
             </div>
           </Slide>
-
-          <Slide index={1}>
-            <div className=" grid grid-cols-5  bg-blue-700">
-              <div className=" col-span-2 space-y-14 mx-4">
-                <div className=" space-y-5">
-                  <p className=" text-4xl">Closca Bottle</p>
-                  <h1 className=" text-8xl">Beach</h1>
-                  <h3 className=" text-5xl"> $39.90</h3>
-                </div>
-                <div className="  m-2 space-y-6 ">
-                  <h1 className=" text-2xl font-bold">
-                    In 20 years, there could be more plastic in our oceans than
-                    fish
-                  </h1>
-                  <h2 className=" text-2xl">
-                    Plastic pollution injures more than 100.000 marine animals
-                    every year.It takes around 450 years for one plastic bottle
-                    to decompose
-                  </h2>
-                  <button className=" bg-blue-700"> Shop Now</button>
+          <Slide index={3}>
+            <div
+              className=" home md:w-full absolute    h-[80%]  "
+              style={{backgroundImage: `url(${img})`}}
+            >
+              <div className=" text-center bg-black  mx-20  md:mt-44  md:opacity-75 xl:mx-96 drop-shadow-2xl mt-3 shadow-2xl border-4 border-amber-500 md:text-5xl rounded-3xl text-xl   md:bg-black  md:text-[#1abc9c]   md:space-y-8">
+                <h1 className=" font-black text-center  "> Best offers for</h1>{" "}
+                <p className=" md:font-bold">
+                  <span className=" text-amber-400">hours </span>
+                  products{" "}
+                </p>
+                <div>
+                  <Link to="/Menu">
+                    <button className=" mb-7"> SHOP NOW </button>{" "}
+                  </Link>
                 </div>
               </div>
-              <div className=" col-span-2 ">
-                <img src={img} alt="" className="     " />
-              </div>
-              <div className=" col-span-1 mt-44 space-x-2 ">
-                <ButtonBack className=" text-white text-7xl">
+              <div className="  ">
+                <ButtonBack
+                  className={
+                    " hover:text-white text-4xl  rounded-t-xl text-[#1abc9c] md:text-7xl"
+                  }
+                >
                   <ArrowCircleLeftOutlinedIcon fontSize="inherit" />
                 </ButtonBack>
-                <button className=" text-white text-7xl">
+                <ButtonNext
+                  className={
+                    " text-[#1abc9c] text-4xl hover:text-white  md:text-7xl"
+                  }
+                >
                   <ArrowCircleRightOutlinedIcon fontSize="inherit" />
-                </button>
+                </ButtonNext>
+              </div>
+            </div>
+          </Slide>
+          <Slide index={2}>
+            <div
+              className=" home md:w-full absolute    h-[80%]  "
+              style={{backgroundImage: `url(${img2})`}}
+            >
+              <div className=" text-center bg-black  mx-20  md:mt-44  md:opacity-75 xl:mx-96 drop-shadow-2xl mt-3 shadow-2xl border-4 border-amber-500 md:text-5xl rounded-3xl text-xl   md:bg-black  md:text-[#1abc9c]   md:space-y-8">
+                <h1 className=" font-black text-center  "> Best offers for</h1>{" "}
+                <p className=" md:font-bold">
+                  <span className=" text-amber-400">hours </span>
+                  products{" "}
+                </p>
+                <div>
+                  <Link to="/Menu">
+                    <button className=" mb-7"> SHOP NOW </button>{" "}
+                  </Link>
+                </div>
+              </div>
+              <div className="  ">
+                <ButtonBack
+                  className={
+                    " hover:text-white text-4xl  rounded-t-xl text-[#1abc9c] md:text-7xl"
+                  }
+                >
+                  <ArrowCircleLeftOutlinedIcon fontSize="inherit" />
+                </ButtonBack>
+                <ButtonNext
+                  className={
+                    " text-[#1abc9c] text-4xl hover:text-white  md:text-7xl"
+                  }
+                >
+                  <ArrowCircleRightOutlinedIcon fontSize="inherit" />
+                </ButtonNext>
+              </div>
+            </div>
+          </Slide>
+          <Slide index={1}>
+            <div
+              className=" home md:w-full absolute    h-[80%]  "
+              style={{backgroundImage: `url(${img3})`}}
+            >
+              <div className=" text-center bg-black  mx-20  md:mt-44  md:opacity-75 xl:mx-96 drop-shadow-2xl mt-3 shadow-2xl border-4 border-amber-500 md:text-5xl rounded-3xl text-xl   md:bg-black  md:text-[#1abc9c]   md:space-y-8">
+                <h1 className=" font-black text-center  "> Best offers for</h1>{" "}
+                <p className=" md:font-bold">
+                  <span className=" text-amber-400">hours </span>
+                  products{" "}
+                </p>
+                <div>
+                  <Link to="/Menu">
+                    <button className=" mb-7"> SHOP NOW </button>{" "}
+                  </Link>
+                </div>
+              </div>
+              <div className="  ">
+                <ButtonBack
+                  className={
+                    " hover:text-white text-4xl  rounded-t-xl text-[#1abc9c] md:text-7xl"
+                  }
+                >
+                  <ArrowCircleLeftOutlinedIcon fontSize="inherit" />
+                </ButtonBack>
+                <ButtonNext
+                  className={
+                    " text-[#1abc9c] text-4xl hover:text-white  md:text-7xl"
+                  }
+                >
+                  <ArrowCircleRightOutlinedIcon fontSize="inherit" />
+                </ButtonNext>
               </div>
             </div>
           </Slide>
