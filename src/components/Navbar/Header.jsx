@@ -228,7 +228,7 @@ const Header = () => {
                 <span
                   id="s1"
                   className={`${
-                    text.length != 0 ? "" : "hidden"
+                    text.length !== 0 ? "" : "hidden"
                   } font-semibold text-sm leading-3`}
                 >
                   Selected:{" "}
