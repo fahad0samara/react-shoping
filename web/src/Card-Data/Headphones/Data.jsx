@@ -11,6 +11,8 @@ import "swiper/css";
 
 
 import {Navigation, Autoplay} from "swiper";
+import { Box } from "@mui/system";
+import { CircularProgress } from "@mui/material";
 
 const Data = () => {
   const [data, setData] = useState([]);
@@ -84,7 +86,10 @@ const Data = () => {
           )}
 
           {loading ? (
-            <div className="loading">Loading...</div>
+            <Box display={"flex"} color="red" className="flex justify-center">
+              <CircularProgress />
+              <h1 className="mt-3 ml-4 text-4xl">Loading...</h1>
+            </Box>
           ) : (
             <div className="info"></div>
           )}

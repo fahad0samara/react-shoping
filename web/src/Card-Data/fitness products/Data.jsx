@@ -6,6 +6,8 @@ import Card from "./Card";
 import "swiper/css";
 
 import {Navigation, Autoplay} from "swiper";
+import { CircularProgress } from "@mui/material";
+import { Box } from "@mui/system";
 
 const Data = () => {
   const [data, setData] = useState([]);
@@ -67,10 +69,20 @@ const Data = () => {
           modules={[Autoplay, Navigation]}
           className={"mySwiper"}
         >
-          
-          {error ? <div className="error">{error}</div> : <div className="info">{error}</div>}
+          {error ? (
+            <div className="error">{error}</div>
+          ) : (
+            <div className="info">{error}</div>
+          )}
 
-          {loading ? <div className="loading">Loading...</div> : <div className="info"></div>}
+          {loading ? (
+            <Box display={"flex"} color="red" className="flex justify-center">
+              <CircularProgress />
+              <h1 className="mt-3 ml-4 text-4xl">Loading...</h1>
+            </Box>
+          ) : (
+            <div className="info"></div>
+          )}
           {data.map((item, i) => (
             <div key={i}>
               <SwiperSlide>
