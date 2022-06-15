@@ -14,15 +14,19 @@ import {Navigation, Autoplay} from "swiper";
 
 const Data = () => {
   const [data, setData] = useState([]);
+   const [loading, setLoading] = useState(true);
+   const [error, setError] = useState(false);
 
   useEffect(() => {
     axios
       .get("https://my-app-shopping.herokuapp.com/shoes")
       .then(function (response) {
         setData(response.data);
+        setLoading(false);
       })
       .catch(function (error) {
         console.error(error);
+        setError(true);
       });
   }, []);
 
@@ -68,8 +72,19 @@ const Data = () => {
           modules={[Autoplay, Navigation]}
           className="mySwiper"
         >
+          {error ? (
+            <div className="error">{error}</div>
+          ) : (
+            <div className="info">{error}</div>
+          )}
+
+          {loading ? (
+            <div className="loading">Loading...</div>
+          ) : (
+            <div className="info"></div>
+          )}
           {data.map((item, i) => (
-            <div key={i}  >
+            <div key={i}>
               <SwiperSlide>
                 <Card item={item} />
               </SwiperSlide>

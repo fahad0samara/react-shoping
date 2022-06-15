@@ -5,6 +5,7 @@ import {ADD} from "../../redux/actions/action";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 const Cardd = ({item}) => {
   const dispatch = useDispatch();
+  
 
   const send = e => {
     console.log(e);

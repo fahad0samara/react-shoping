@@ -11,24 +11,25 @@ const CARD_OPTIONS = {
   iconStyle: "solid",
   style: {
     base: {
-      iconColor: "#c4f0ff",
-      color: "#fff",
-      fontWeight: 500,
-      fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
-      fontSize: "16px",
+      color: "#32325d",
+      fontFamily: "Arial, sans-serif",
       fontSmoothing: "antialiased",
-      ":-webkit-autofill": {color: "#fce883"},
-      "::placeholder": {color: "#87bbfd"},
+      fontSize: "30px",
+      "::placeholder": {
+        color: "#fff",
+      },
     },
     invalid: {
-      iconColor: "#ffc7ee",
-      color: "#ffc7ee",
+      fontFamily: "Arial, sans-serif",
+      color: "#fa755a",
+      iconColor: "#fa755a",
     },
   },
 };
 
 export default function PaymentForm() {
-    
+  const [disabled, setDisabled] = useState(true);
+    const [succeeded, setSucceeded] = useState(false);
   const [success, setSuccess] = useState(false);
   const stripe = useStripe();
   
@@ -48,8 +49,16 @@ export default function PaymentForm() {
   }, [ success, navigate ]);
 
 
+    const handleChange = async event => {
+      // Listen for changes in the CardElement
+      // and display any errors as the customer types their card details
+      setDisabled(event.empty);
+      setError(event.error ? event.error.message : "");
+    };
   const handleSubmit = async e => {
     e.preventDefault();
+    
+    setProcessing(true);
     const {error, paymentMethod} = await stripe.createPaymentMethod({
       type: "card",
       card: elements.getElement(CardElement),
@@ -65,6 +74,7 @@ export default function PaymentForm() {
 
         if (response.data.success) {
           setProcessing(false);
+          setSucceeded(true);
           console.log("Successful payment");
 
 
@@ -83,49 +93,10 @@ export default function PaymentForm() {
 
   return (
     <>
-      {processing &&
-       (setTimeout(() => {
-          setProcessing(null);
-        }, 2000),
-        (
-         <div class="w-full text-white bg-emerald-500">
-        <div class="container flex items-center justify-between px-6 py-4 mx-auto">
-          <div class="flex">
-            <svg viewBox="0 0 40 40" class="w-6 h-6 fill-current">
-              <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z"></path>
-            </svg>
-
-            <p class="mx-3">You finished the tasks.</p>
-          </div>
-
-          <button class="p-1 transition-colors duration-200 transform rounded-md hover:bg-opacity-25 hover:bg-gray-600 focus:outline-none">
-            <svg
-              class="w-5 h-5"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6 18L18 6M6 6L18 18"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-      ))
-      
-      
-      }
-     
-
       {error &&
         (setTimeout(() => {
           setError(null);
-        }, 80000),
+        }, 2000),
         (
           <div class="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
             <div class="flex items-center justify-center w-12 bg-red-500">
@@ -151,17 +122,32 @@ export default function PaymentForm() {
 
       {!success ? (
         <form onSubmit={handleSubmit} className="">
-          {processing && <div className="FormRow">{processing}</div>}
+          <h1>enter </h1>
           <fieldset className="FormGroup">
-            <div className="FormRow">
-              <CardElement options={CARD_OPTIONS} />
+            <div className="">
+              <CardElement options={CARD_OPTIONS} onChange={handleChange} />
             </div>
           </fieldset>
 
-          <button className="success ">Pay</button>
+          <button disabled={processing || disabled || succeeded} id="submit">
+            <span id="button-text" className=" bg-orange-400 text-4xl">
+              {processing ? (
+                <div className="spinner" id="spinner"></div>
+              ) : (
+                <button
+                  className="text-2xl leading-none    py-3
+                        bg-white
+    border-[#1abc9c]
+    border focus:outline-none   border-x-8 text-black"
+                >
+                  Pay NOW
+                </button>
+              )}
+            </span>
+          </button>
         </form>
       ) : (
-        <h1>ss</h1>
+        <h1>{success}</h1>
       )}
     </>
   );

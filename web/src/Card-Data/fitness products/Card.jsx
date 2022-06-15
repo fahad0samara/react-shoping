@@ -11,6 +11,7 @@ const Card = ({item}) => {
     dispatch(ADD(e));
   };
   return (
+    
     <div className="mx-20  md:mx-0">
       <figure className="snip1208  border-2  border-yellow-300 drop-shadow-2xl shadow-2xl">
         <img

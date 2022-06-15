@@ -47,11 +47,11 @@ const Toggle = () => {
         pauseOnHover
       />
       {darkMode ? (
-        <button className=" text-black" onClick={notify}>
+        <button className=" text-white " onClick={notify}>
           <ModeNightIcon />
         </button>
       ) : (
-        <button onClick={success} className=" text-black">
+        <button onClick={success} className=" text-white ">
           <WbSunnyIcon />
         </button>
       )}
